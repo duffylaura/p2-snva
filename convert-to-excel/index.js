@@ -32,3 +32,18 @@ function init() {
 
 init(); 
 
+function readExcelConvertToJSON() {
+    /* Read the Excel file */
+    const workbook = XLSX.readFile("./assets/excelFormat.xlsx", { cellFormula: true });
+   
+    // /* Get the first worksheet */
+    const worksheet = 1;
+
+    /* Convert the worksheet data to JSON */
+    const data = XLSX.utils.sheet_to_json(worksheet);
+
+    /* Log the JSON data */
+    console.log(data);
+};
+
+readExcelConvertToJSON(); 
