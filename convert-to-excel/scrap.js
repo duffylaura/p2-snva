@@ -62,3 +62,29 @@ init();
 //   XLSX.writeFile(workbook, './assets/Book1.xlsx');
 // };
 
+
+
+
+
+// Write to an excel file   
+fs.writeFile('./assets/Book1.xlsx', data, (err) => 
+err ? console.log(err):console.log('Created xlsx file successfully')
+);
+
+
+
+
+// split the text data into rows and columns
+const rows = textData.split('\n').map(row => row.trim().split(/\s+/));
+
+// Create a new workbook and add a worksheet
+const workbook = XLSX.utils.book_new();
+const worksheet = XLSX.utils.aoa_to_sheet(rows);
+
+// Set the column widths based on the length of the data in the first row
+const columnWidths = rows.length > 0 ? rows[0].map(cell => ({ width: cell.length })) : [];
+XLSX.utils.sheet_set_column_widths(worksheet, columnWidths);
+
+// Add the worksheet to the workbook and save it to a file
+XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+XLSX.writeFile(workbook, 'output.xlsx');
