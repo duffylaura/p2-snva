@@ -1,0 +1,20 @@
+{
+  "name": "p2-snva",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duffylaura/p2-snva"
+  },
+  "author": "Laura Duffy",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^9.1.5",
+    "sheetjs": "^2.0.0",
+    "xlsx": "^0.18.5"
+  }
+}
